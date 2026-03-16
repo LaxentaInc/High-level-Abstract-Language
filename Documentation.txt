@@ -50,31 +50,23 @@ Using a ‘conditional’ loop:
 You do not have to use multiple conditions when you are looping.
 
 Error handling.
-With generic error handling:
-| :Go:Err #No ‘:Err’ arguments mean all generic errors are captured.#
+| :Go
+| <ErrorType>:
 |	<...>
 | _: #This is the path for the error message or code run after the error.#
 |	<...>
-| :Loop:End #Loops until the error condition resolves. Intended only for input errors, other error types will not self-correct and will continually loop.#
-
-With specific error handling:
-| :Go:Err <ErrorType>:
-|	<...>
-| <ErrorType>:
-|	<...>
-| _: #This is the default path when no error is raised.#
-|	<...>
-| :End
+| :Loop:End #Loops until the error condition resolves. Intended only for the 'InputTypeError' error, other error types will not self-correct and will continually loop.#
 
 <ErrorType> =
-	Syntax,
-	Type,
-	InputType,
-	FileAbsent,
-	ZeroDivision,
-	KeyHalt,
-	Underflow,
-	Overflow
+	GenericError,
+	SyntaxError,
+	TypeError,
+	InputTypeError,
+	FileAbsentError,
+	ZeroDivisionError,
+	KeyHaltError,
+	UnderflowError,
+	OverflowError
 
 Data types.
 Int => Integer.
