@@ -51,13 +51,12 @@ Using a ‘conditional’ loop:
 You do not have to use multiple conditions when you are looping.
 
 Error handling.
-| Go
+| Loop #Loops until the error condition resolves. Intended only for the 'InputTypeError' error, other error types will not self-correct and will continually loop. This can be changed to 'Go'.#
 | <...> #This is the code being checked for the error.#
 | <ErrorType>: #This is the path for the error message or code run after the error.#
 |	<...>
 | _:
 |	End
-| Loop #Loops until the error condition resolves. Intended only for the 'InputTypeError' error, other error types will not self-correct and will continually loop.#
 
 <ErrorType> =
 	GenericError,
