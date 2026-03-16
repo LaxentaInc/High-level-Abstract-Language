@@ -37,17 +37,16 @@ Using an ‘if’ statement:
 | End
 
 Using a ‘ranged’ loop:
-| Go <Variable> (<StartInteger> -> <EndInteger>, <Step>): #Step defaults to 1 when omitted.#
+| Loop <Variable> (<StartInteger> -> <EndInteger>, <Step>): #Step defaults to 1 when omitted.#
 |     <...>
 | End
 
 Using a ‘conditional’ loop:
-| Go
+| Loop
 | <Condition>:
 | 	<...>
 | _:
 |	End
-| Loop
 
 You do not have to use multiple conditions when you are looping.
 
@@ -174,6 +173,7 @@ Root(<Integer>, <Integer>) => The root of degree <Integer> of <Integer>.
 Rand(<LowerBound> -> <UpperBound>, <Step>) => Random number
 Round(<Integer>, <Precision>) => Rounds <Integer> to the specified number of decimal places. If <Precision> is omitted, it defaults to 0.
 Round(<Integer>, -> <Precision>) => Rounds <Integer> to <Precision> significant figures.
+Sum() => Adds all integers in a list together.
 Pi => Returns the value of pi.
 E => Returns Euler's Number.
 
