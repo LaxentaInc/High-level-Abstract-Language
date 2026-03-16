@@ -274,12 +274,21 @@ Result:
 	Line 3,4 caused an error.
 	Line 7 referenced the function with an error.
 
+Warnings.
+Warnings about dubious code can be suppressed with the following.
+
+| :Path:Go:Rebel:Warn #Prevents a warning being raised for a block of code.#
+| <...>
+| :Path:End:Rebel:Warn #Allows warnings to be raised again.#
+
 Memory safety.
 H.A.L uses a borrow checker type system by default.
 
-| :Path:Go:Rebel:Mem #Remove memory safety boundaries for the code below.#
+| :Path:Go:Rebel:Mem #This removes memory safety boundaries for the code below, but still produces a warning.#
 | <...>
 | :Path:End:Rebel:Mem
+
+To suppress the warnings, use the ending ':Mem:Warn'.
 
 Compiling.
 Command usage: hal comp <File>
@@ -291,18 +300,11 @@ Command usage: hal intp <File>
 
 H.A.L also allows the mix of compiled and interpreted code in the same file.
 
-Command usage: hal run <File> ← Runs any compiled segments, while sections that are not compiled are interpreted.
+Command usage: hal run <File> => Runs any compiled segments, while sections that are not compiled are interpreted.
 
 | :Path:Go:Interpret #Code is not compiled in this range and interpretation starts.#
 | <...>
 | :Path:End:Interpret #End of interpretation for this block of code.#
-
-Warnings.
-Warnings about dubious code can be suppressed with the following.
-
-| :Path:Go:Rebel:Warn #Prevents a warning being raised for a block of code.#
-| <...>
-| :Path:End:Rebel:Warn #Allows warnings to be raised again.#
 
 Modules.
 Imported modules are to be placed in the .fmhal file.
