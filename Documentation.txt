@@ -17,54 +17,54 @@ Multi-line and single-line comments are the same.
 
 Conditions.
 Using a ‘match’ statement:
-| :Path:Go <Variable>:
+| :Go <Variable>:
 | <VariableValue>:
 | 	<...>
 | <VariableValue>:
 |	<...>
 | _: #Runs when none of the other conditions are met.#
 | 	<...>
-| :Path:End
+| :End
 
 Using an ‘if’ statement:
-| :Path:Go
+| :Go
 | <Condition>:
 | 	<...>
 | <Condition>:
 | 	<...>
 | _:
 | 	<...>
-| :Path:End
+| :End
 
 Using a ‘ranged’ loop:
-| :Path:Go <Variable> (<StartInteger> -> <EndInteger>, <Step>): #Step defaults to 1 when omitted.#
+| :Go <Variable> (<StartInteger> -> <EndInteger>, <Step>): #Step defaults to 1 when omitted.#
 |     <...>
-| :Path:Loop:End
+| :Loop:End
 
 Using a ‘conditional’ loop:
-| :Path:Go
+| :Go
 | <Condition>:
 | 	<...>
-| :Path:Loop:End
+| :Loop:End
 
 You do not have to use multiple conditions when you are looping.
 
 Error handling.
 With generic error handling:
-| :Path:Go:Err #No ‘:Err’ arguments mean all generic errors are captured.#
+| :Go:Err #No ‘:Err’ arguments mean all generic errors are captured.#
 |	<...>
 | _: #This is the path for the error message or code run after the error.#
 |	<...>
-| :Path:Loop:End #Loops until the error condition resolves. Intended only for input errors, other error types will not self-correct and will continually loop.#
+| :Loop:End #Loops until the error condition resolves. Intended only for input errors, other error types will not self-correct and will continually loop.#
 
 With specific error handling:
-| :Path:Go:Err <ErrorType>:
+| :Go:Err <ErrorType>:
 |	<...>
 | <ErrorType>:
 |	<...>
 | _: #This is the default path when no error is raised.#
 |	<...>
-| :Path:End
+| :End
 
 <ErrorType> =
 	Syntax,
@@ -146,9 +146,6 @@ Note: Using double colons ‘::’ around a variable name inside quotes disables
 
 Functions and procedures.
 | Func <Function>(<Variable>, <Variable>): #Parameters are defined.#
-| 	<Variable>
-| 	<Variable>
-|	:Public #Internal variables above are public, meaning they modify other variables out of the function scope. Local variables can only be used within the function.#
 |	<...>
 |
 | <Function>(<Variable>, <Variable>) #Calls the function.#
@@ -250,9 +247,9 @@ Single line:
 | <...>:Omit #Ignores current line unless code is run in debug mode.#
 
 Multiple lines:
-| :Path:Go:Omit
+| :Go:Omit
 | <...>
-| :Path:End:Omit #Ignores code up to this point.#
+| :End:Omit #Ignores code up to this point.#
 
 Error handling:
 | :Omit:Err #Ignores the line if an error is produced by it, works without debug mode.#
@@ -277,16 +274,14 @@ Result:
 Warnings.
 Warnings about dubious code can be suppressed with the following.
 
-| :Path:Go:Rebel:Warn #Prevents a warning being raised for a block of code.#
+| :Go:Rebel:Warn #Prevents a warning being raised for a block of code.#
 | <...>
-| :Path:End:Rebel:Warn #Allows warnings to be raised again.#
+| :End:Rebel:Warn #Allows warnings to be raised again.#
 
 Memory safety.
-H.A.L uses a borrow checker type system by default.
-
-| :Path:Go:Rebel:Mem #This removes memory safety boundaries for the code below, but still produces a warning.#
+| :Go:Rebel:Mem #This removes memory safety boundaries for the code below, but still produces a warning.#
 | <...>
-| :Path:End:Rebel:Mem
+| :End:Rebel:Mem
 
 To suppress the warnings, use the ending ':Mem:Warn'.
 
@@ -302,9 +297,9 @@ H.A.L also allows the mix of compiled and interpreted code in the same file.
 
 Command usage: hal run <File> => Runs any compiled segments, while sections that are not compiled are interpreted.
 
-| :Path:Go:Interpret #Code is not compiled in this range and interpretation starts.#
+| :Go:Interpret #Code is not compiled in this range and interpretation starts.#
 | <...>
-| :Path:End:Interpret #End of interpretation for this block of code.#
+| :End:Interpret #End of interpretation for this block of code.#
 
 Modules.
 Imported modules are to be placed in the .fmhal file.
