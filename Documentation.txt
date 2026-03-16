@@ -274,12 +274,12 @@ Result:
 	Line 3,4 caused an error.
 	Line 7 referenced the function with an error.
 
-Garbage collection.
+Memory safety.
 H.A.L uses a borrow checker type system by default.
 
-| :Path:Go:Garbage #Start using the garbage collector and remove limits.#
+| :Path:Go:Rebel:Mem #Remove memory safety boundaries for the code below.#
 | <...>
-| :Path:End:Garbage
+| :Path:End:Rebel:Mem
 
 Compiling.
 Command usage: hal comp <File>
@@ -300,9 +300,9 @@ Command usage: hal run <File> ← Runs any compiled segments, while sections tha
 Warnings.
 Warnings about dubious code can be suppressed with the following.
 
-| :Path:Go:Rebel #Prevents a warning being raised for a block of code.#
+| :Path:Go:Rebel:Warn #Prevents a warning being raised for a block of code.#
 | <...>
-| :Path:End:Rebel #Allows warnings to be raised again.#
+| :Path:End:Rebel:Warn #Allows warnings to be raised again.#
 
 Modules.
 Imported modules are to be placed in the .fmhal file.
